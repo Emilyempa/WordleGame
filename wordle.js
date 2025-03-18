@@ -82,3 +82,4 @@ function matchGuess(guess, correct) {
 
 matchGuess("cykla", "hallå");
 matchGuess("salsa", "lasså");
+module.exports = { matchGuess };
