@@ -1,5 +1,5 @@
-//kom ihåg att exportera till testet! export function minfunktion() funkar på alla funktioner 
-// eller export { checkGuess, anotherFunction }; i slutet av filenom jag har fler 
+//kom ihåg att exportera till testet! export function minfunktion() funkar på alla funktioner
+// eller export { checkGuess, anotherFunction }; i slutet av filenom jag har fler
 
 /*
 Implementera algoritmen i form av en funktion
@@ -34,3 +34,51 @@ Algoritm
 10. Skriv ut resultatarrayen.
 11. Returnera resultatarrayen.
 */
+
+function matchGuess(guess, correct) {
+  if (!guess.trim() || !correct.trim()) {
+    console.log("Input is empty, please try again.");
+    return;
+  }
+
+  guess = guess.trim().toUpperCase();
+  correct = correct.trim().toUpperCase();
+
+  if (guess.length !== correct.length) {
+    console.log(
+      "Your guess and the correct answer must have the same length, please try again."
+    );
+    return;
+  }
+
+  const guessArray = Array.from(guess);
+  const correctArray = Array.from(correct);
+  const resultArray = [];
+  const correctCopy = [...correctArray];
+
+  guessArray.forEach((letter, i) => {
+    if (letter === correctArray[i]) {
+      resultArray.push({ letter: letter, result: "correct" });
+      correctCopy[i] = null;
+    } else {
+      resultArray.push(null);
+    }
+  });
+
+  guessArray.forEach((letter, i) => {
+    if (resultArray[i] === null) {
+      if (correctCopy.includes(letter)) {
+        resultArray[i] = { letter: letter, result: "misplaced" };
+        correctCopy[correctCopy.indexOf(letter)] = null;
+      } else {
+        resultArray[i] = { letter: letter, result: "incorrect" };
+      }
+    }
+  });
+
+  console.log(resultArray);
+  return resultArray;
+}
+
+matchGuess("cykla", "hallå");
+matchGuess("salsa", "lasså");
