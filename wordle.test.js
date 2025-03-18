@@ -1,8 +1,7 @@
-//kom ihåg att importera wordle.js import appfrom '../wordle.js'; app kan bytas till vad jag vill 
-// eller om jag har fler import { checkGuess, anotherFunction } from './wordle.js';
+const { matchGuess } = require('./wordle.js');
+
 
 /*
-Tänk igenom och utforma en teststrategi för algoritmen
 Skriv minst två tester, troligtvis fler, som verifierar att funktionen fungerar som den ska
 Dokumentera er teststrategi med kommentarer i testkoden
 
@@ -19,3 +18,15 @@ Teststrategi
 10. Testa att funktionen returnerar en array med objekt.
 11. Testa att funktionen returnerar en array med objekt som har samma ordning som i gissningen.
 */
+describe('matchGuess function', () => {
+    test('should return correct result for a completely correct guess', () => {
+      const result = matchGuess('hello', 'hello');
+      expect(result).toEqual([
+        { letter: 'H', result: 'correct' },
+        { letter: 'E', result: 'correct' },
+        { letter: 'L', result: 'correct' },
+        { letter: 'L', result: 'correct' },
+        { letter: 'O', result: 'correct' }
+      ]);
+    });
+  });
