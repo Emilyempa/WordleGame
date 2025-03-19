@@ -41,8 +41,8 @@ function matchGuess(guess, correct) {
     return;
   }
 
-  guess = guess.trim().toUpperCase();
-  correct = correct.trim().toUpperCase();
+  guess = guess.replace(/\W/g, '').toUpperCase();
+  correct = correct.replace(/\W/g, '').toUpperCase();
 
   if (guess.length !== correct.length) {
     console.log(
@@ -80,6 +80,4 @@ function matchGuess(guess, correct) {
   return resultArray;
 }
 
-matchGuess("cykla", "hallå");
-matchGuess("salsa", "lasså");
 module.exports = { matchGuess };
