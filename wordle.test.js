@@ -16,6 +16,7 @@ Unit testing with mocking to test console.logs
 11. Verify that the function handles special characters as intended.
 
 These tests are considered complete as they thoroughly test both the logic and error handling of the function.
+This test does not handle swedish åäö because the wordle game is in english.
 */
 
 describe("matchGuess function", () => {
