@@ -64,7 +64,7 @@ describe("matchGuess function", () => {
   });
 
   test("should remove all special characters from input", () => {
-    const result = matchGuess("hello!ö","hello");
+    const result = matchGuess("hello!ö","he.&äÅllo");
     expect(result).toEqual([
       { letter: "H", result: "correct" },
       { letter: "E", result: "correct" },
