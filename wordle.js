@@ -37,8 +37,8 @@ function matchGuess(guess, correct) {
     return;
   }
 
-  guess = guess.replace(/\W/g, '').toUpperCase();
-  correct = correct.replace(/\W/g, '').toUpperCase();
+  guess = guess.replace(/[^a-zA-Z]/g, '').toUpperCase();
+  correct = correct.replace(/[^a-zA-Z]/g, '').toUpperCase();
 
   if (guess.length !== correct.length) {
     console.log(

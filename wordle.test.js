@@ -14,6 +14,7 @@ Unit testing with mocking to test console.logs
 9. Verify that the function returns an array of objects.
 10. Verify that the function returns an array of objects in the same order as the guess.
 11. Verify that the function handles special characters as intended.
+12. Veryfy that the functions handles numbers as intended.
 
 These tests are considered complete as they thoroughly test both the logic and error handling of the function.
 */
@@ -71,8 +72,19 @@ describe("matchGuess function", () => {
       { letter: "L", result: "correct" },
       { letter: "L", result: "correct" },
       { letter: "O", result: "correct" },
-    ])
-  })
+    ]);
+  });
+
+  test("should remove all numbers from input", () => {
+    const result = matchGuess("he3llo", "h9ello");
+    expect(result).toEqual([
+      { letter: "H", result: "correct" },
+      { letter: "E", result: "correct" },
+      { letter: "L", result: "correct" },
+      { letter: "L", result: "correct" },
+      { letter: "O", result: "correct" },
+    ]);
+  });
 });
 
 describe("matchGuess error handling functions", () => {
